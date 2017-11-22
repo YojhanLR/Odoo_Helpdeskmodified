@@ -15,11 +15,11 @@
       	          <sheet>  
       	              <group>
       	                  <!-- <field name="create_user_id" invisble="True"/> -->
-                          <field name="create_date" string='Fecha creación'/>
+                          <field name="create_date" string="Fecha creación"/>
       	                  <field name="ticket_number"/>
       	                  <field name="priority_id"/>
       	                  <field name="user_id"/>
-          	          <field name="person_name"/
+          	          <field name="person_name"/>
 >i                      <field name="last_name"/>
                       <field name="num_id"/>
                       <field name="country"/>
