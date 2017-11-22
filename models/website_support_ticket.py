@@ -35,6 +35,7 @@ class WebsiteSupportTicket(models.Model):
     priority_id = fields.Many2one('website.support.ticket.priority', default=_default_priority_id, string="Prioridad")
     partner_id = fields.Many2one('res.partner', string="Partner")
     user_id = fields.Many2one('res.users', string="Usuario asignado")
+    create_date = fields.Datetime(string="Fecha de creación")
     person_name = fields.Char(string='Nombre')
     last_name = fields.Char(string='Apellido')
     num_id = fields.Char(string=' Num. de identificación')

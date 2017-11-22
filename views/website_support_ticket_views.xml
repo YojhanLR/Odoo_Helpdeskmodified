@@ -14,12 +14,13 @@
                   </header>
       	          <sheet>  
       	              <group>
-      	                  <field name="create_user_id" invisble="True"/>
+      	                  <!-- <field name="create_user_id" invisble="True"/> -->
+                          <field name="create_date" string='Fecha creación'/>
       	                  <field name="ticket_number"/>
       	                  <field name="priority_id"/>
       	                  <field name="user_id"/>
-          	          <field name="person_name"/>
-                      <field name="last_name"/>
+          	          <field name="person_name"/
+>i                      <field name="last_name"/>
                       <field name="num_id"/>
                       <field name="country"/>
                       <field name="departamento"/>
@@ -64,7 +65,9 @@
           <field name="model">website.support.ticket</field>
           <field name="arch" type="xml">
       	      <tree colors="black:ticket_color==False">
-      	          <field name="create_user_id" invisble="True"/>
+      	          <!-- <field name="create_user_id" invisble="True"/> -->
+                  <field name="create_date"/>
+                  <field name="user_id"/>
       	          <field name="ticket_color" invisible="1"/>
       	          <field name="ticket_number_display" string="Num. de Tiquete"/>
       	          <field name="num_id"/>
@@ -74,7 +77,7 @@
       	          <field name="category"/>
       	          <field name="state"/>
       	          <field name="email"/>
-                  <field name="subject"/>
+                 <!--  <field name="subject"/> -->
       	      </tree>
       	  </field>
       </record>
@@ -85,7 +88,7 @@
           <field name="arch" type="xml">
       	      <search>
       	          <field name="partner_id"/>
-                  <filter string="Unattended Tickets" name="unattended_tickets" domain="[('unattended', '=', True )]" />
+                  <filter string="Tiquetes sin atender" name="unattended_tickets" domain="[('unattended', '=', True )]" />
                   <filter name="group_by_category" string="Category" domain="[]"  context="{'group_by':'category'}"/>
                   <filter name="group_by_user" string="User" domain="[]"  context="{'group_by':'user_id'}"/>
       	      </search>

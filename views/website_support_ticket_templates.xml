@@ -11,7 +11,7 @@
             <field name="auto_delete" eval="False"/>
             <field name="built_in" eval="True"/>
             <field name="body_html"><![CDATA[
-                <p>Dear ${object.person_name},</p>
+                <p>Estimado/a ${object.person_name},</p>
                 <p>We would like to get your feedback on the support</p>
                 <p><a href="_survey_url_">here</a></p>
                 <hr/>
@@ -35,7 +35,7 @@
             <field name="auto_delete" eval="False"/>
             <field name="built_in" eval="True"/>
             <field name="body_html"><![CDATA[
-                <p>Dear _user_name_,</p>
+                <p>Estimado/a _user_name_,</p>
                 <p>A new support ticket has been created in a category that you follow</p>
                 <p>Person Name: ${object.person_name}</p>
                 <p>Category: ${object.category.name}</p>
@@ -50,12 +50,12 @@
             <field name="name">Support Ticket User Change</field>
             <field name="model_id" ref="model_website_support_ticket"></field>
             <field name="email_from"><![CDATA[${object.company_id.name} <${object.company_id.email}>]]></field>            
-            <field name="subject">A Support Ticket has been assigned to you</field>
+            <field name="subject">Un tiquete de solicitud se te ha asignado.</field>
             <field name="auto_delete" eval="False"/>
             <field name="built_in" eval="True"/>
             <field name="body_html"><![CDATA[
-                <p>Dear _user_name_,</p>
-                <p>A support ticket has been assigned to you here are the details</p>
+                <p>Estimado/a _user_name_,</p>
+                <p>Un tiquete de solicitud se te ha asignado.</p>
                 <hr/>
                 <b>Num. de Tiquete:</b> ${object.ticket_number or object.id}<br/>
                 <b>Categoria del tiquete:</b> 
@@ -75,12 +75,12 @@
             <field name="model_id" ref="model_website_support_ticket"></field>
             <field name="email_from"><![CDATA[${object.company_id.name} <${object.company_id.email}>]]></field>            
             <field name="email_to">${object.email|safe}</field>
-            <field name="subject">Your support ticket has been updated</field>
+            <field name="subject">Tu tiquete se ha actualizado</field>
             <field name="auto_delete" eval="False"/>
             <field name="built_in" eval="True"/>
             <field name="body_html"><![CDATA[
-                <p>Dear ${object.person_name},</p>
-                <p>Your support ticket has been updated and is now in the category '${object.category.name}' </p>
+                <p>Estimado/a ${object.person_name},</p>
+                <p>Tu tiquete se ha actualizado y ahora está en una nueva categoria: '${object.category.name}' </p>
                 <hr/>
                 <b>Num. de Tiquete:</b> ${object.ticket_number or object.id}<br/>
                 <b>Categoria del tiquete:</b> 
@@ -100,12 +100,12 @@
             <field name="model_id" ref="model_website_support_ticket"></field>
             <field name="email_from"><![CDATA[${object.company_id.name} <${object.company_id.email}>]]></field>
             <field name="email_to">${object.email|safe}</field>
-            <field name="subject">Your support ticket has been closed</field>
+            <field name="subject">Tu solicitud ha sido completada</field>
             <field name="auto_delete" eval="False"/>
             <field name="built_in" eval="True"/>
             <field name="body_html"><![CDATA[
-                <p>Dear ${object.person_name},</p>
-                <p>Your support ticket has been closed by our staff, here is the final comment</p>
+                <p>Estimado/a ${object.person_name},</p>
+                <p>Tu solicitud ha sido completada, este es el mensaje final: </p>
                 <p>${object.close_comment or ''}</p>
                 <hr/>
                 <b>Num. de Tiquete:</b> ${object.ticket_number or object.id}<br/>
@@ -122,11 +122,11 @@
         </record>
 
         <record id="support_ticket_new" model="mail.template">
-            <field name="name">Support Ticket New</field>
+            <field name="name">Nueva solicitud</field>
             <field name="model_id" ref="model_website_support_ticket"></field>
             <field name="email_from"><![CDATA[${object.company_id.name} <${object.company_id.email}>]]></field>
             <field name="email_to">${object.email|safe}</field>
-            <field name="subject">We have received your support ticket '${object.subject}' and will get back to you shortly</field>
+            <field name="subject">Hemos recibido tu solicitud.</field>
             <field name="auto_delete" eval="False"/>
             <field name="built_in" eval="True"/>
             <field name="body_html"><![CDATA[
@@ -288,7 +288,7 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
 
 
             <div class="mt16 mb16">
-                <h1 class="text-center">My Tiquetes de Solicitudes</h1>
+                <h1 class="text-center">Mis Tiquetes de Solicitudes</h1>
             </div>
         
             <div class="col-md-3"></div>
@@ -303,7 +303,7 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
                 </t>
                 <t t-if="ticket_count == 0">
                     <div class="mt16 mb16">
-		        <h2 class="text-center">You have no Tiquetes de Solicitudes</h2>
+		        <h2 class="text-center">No tienes solicitudes realizadas</h2>
                     </div>
                 </t>
             </div>

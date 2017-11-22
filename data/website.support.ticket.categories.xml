@@ -2,12 +2,12 @@
 <odoo>
     <data noupdate="1">
 
-        <record id="website_support_tech_support" model="website.support.ticket.categories">
-            <field name="name">Technical Support</field>
+        <record id="website_support_expedicion" model="website.support.ticket.categories">
+            <field name="name">Expedición de tarjeta</field>
         </record>
 
-        <record id="website_support_billing_issues" model="website.support.ticket.categories">
-            <field name="name">Billing Issues</field>
+        <record id="website_support_renovacion" model="website.support.ticket.categories">
+            <field name="name">Renovación de tarjeta</field>
         </record>
             
     </data>     
