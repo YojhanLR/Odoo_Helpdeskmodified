@@ -5,4 +5,4 @@ class ResCompanyTicket(models.Model):
 
     _inherit = "res.company"
     
-    next_support_ticket_number = fields.Integer(string="Next Support Ticket Number", default="51976386")
+    next_support_ticket_number = fields.Integer(string="Next Support Num. de Tiquete", default="51976386")

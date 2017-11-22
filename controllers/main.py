@@ -31,7 +31,7 @@ class SupportTicketController(http.Controller):
             return_string = ""
 
 	    return_string += "<div class=\"form-group\">\n"
-	    return_string += "    <label class=\"col-md-3 col-sm-4 control-label\" for=\"subcategory\">Sub Category</label>\n"
+	    return_string += "    <label class=\"col-md-3 col-sm-4 control-label\" for=\"subcategory\">Subcategoría</label>\n"
 	    return_string += "    <div class=\"col-md-7 col-sm-8\">\n"
 
             return_string += "        <select class=\"form-control\" name=\"subcategory\">\n"
@@ -209,7 +209,7 @@ class SupportTicketController(http.Controller):
 
     @http.route('/support/ticket/view', type="http", auth="user", website=True)
     def support_ticket_view_list(self, **kw):
-        """Displays a list of support tickets owned by the logged in user"""
+        """Displays a list of Tiquetes de Solicitudes owned by the logged in user"""
         
         extra_access = []
         for extra_permission in http.request.env.user.partner_id.stp_ids:

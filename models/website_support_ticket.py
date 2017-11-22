@@ -20,7 +20,7 @@ class MLStripper(HTMLParser):
 class WebsiteSupportTicket(models.Model):
 
     _name = "website.support.ticket"
-    _description = "Website Support Ticket"
+    _description = "Website Tiquete de Solicitud"
     _rec_name = "subject"
     _inherit = ['mail.thread','ir.needaction_mixin']
 
@@ -47,21 +47,21 @@ class WebsiteSupportTicket(models.Model):
     email = fields.Char(string="Email")
     support_email = fields.Char(string="Support Email")
     category = fields.Many2one('website.support.ticket.categories', string="Categoria", track_visibility='onchange')
-    sub_category_id = fields.Many2one('website.support.ticket.subcategory', string="Sub Category")
+    sub_category_id = fields.Many2one('website.support.ticket.subcategory', string="Subcategoría")
     subject = fields.Char(string="Asunto")
-    description = fields.Text(string="Descripcion")
+    description = fields.Text(string="Comentarios adicionales")
     state = fields.Many2one('website.support.ticket.states', readonly=True, default=_default_state, string="Estado")
     conversation_history = fields.One2many('website.support.ticket.message', 'ticket_id', string="Conversation History")
     attachment = fields.Binary(string="Attachments")
     attachment_filename = fields.Char(string="Attachment Filename")
-    attachment_ids = fields.One2many('ir.attachment', 'res_id', domain=[('res_model', '=', 'website.support.ticket')], string="Media Attachments")
+    attachment_ids = fields.One2many('ir.attachment', 'res_id', domain=[('res_model', '=', 'website.support.ticket')], string="Archivos Adjuntos")
     unattended = fields.Boolean(string="Unattended", compute="_compute_unattend", store="True", help="In 'Open' state or 'Customer Replied' state taken into consideration name changes")
     portal_access_key = fields.Char(string="Portal Access Key")
     ticket_number = fields.Integer(string="Num. de Tiquete")
-    ticket_number_display = fields.Char(string="Ticket Number Display", compute="_compute_ticket_number_display")
+    ticket_number_display = fields.Char(string="Num. de Tiquete Display", compute="_compute_ticket_number_display")
     ticket_color = fields.Char(related="priority_id.color", string="Ticket Color")
     company_id = fields.Many2one('res.company', string="Company", default=lambda self: self.env['res.company']._company_default_get('website.support.ticket') )
-    support_rating = fields.Integer(string="Support Rating")
+    support_rating = fields.Integer(string="Ranking de soporte")
     support_comment = fields.Text(string="Comentario")
     close_comment = fields.Text(string="Comentario de cierre")
     close_time = fields.Datetime(string="Hora de cierre")
@@ -147,7 +147,7 @@ class WebsiteSupportTicket(models.Model):
     def open_close_ticket_wizard(self):
 
         return {
-            'name': "Close Support Ticket",
+            'name': "Cerrar Tiquete de solicitud",
             'type': 'ir.actions.act_window',
             'view_type': 'form',
             'view_mode': 'form',
@@ -168,7 +168,7 @@ class WebsiteSupportTicket(models.Model):
 
         new_id.ticket_number = new_id.company_id.next_support_ticket_number
 
-        #Add one to the next ticket number
+        #Add one to the next Num. de Tiquete
         new_id.company_id.next_support_ticket_number += 1
         
         #Send autoreply back to customer
@@ -257,7 +257,7 @@ class WebsiteSupportTicketSubCategories(models.Model):
 
     _name = "website.support.ticket.subcategory"
     
-    name = fields.Char(required=True, translate=True, string='Sub Category Name')   
+    name = fields.Char(required=True, translate=True, string='Subcategoría Name')   
     parent_category_id = fields.Many2one('website.support.ticket.categories', required=True, string="Parent Category")
    
 class WebsiteSupportTicketStates(models.Model):
@@ -292,7 +292,7 @@ class WebsiteSupportTicketCompose(models.Model):
     _name = "website.support.ticket.close"
 
     ticket_id = fields.Many2one('website.support.ticket', string="Ticket ID")
-    message = fields.Text(string="Close Message")
+    message = fields.Text(string="Mensaje de cierre")
 
     def close_ticket(self):
 

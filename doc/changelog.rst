@@ -4,7 +4,7 @@ v1.4.14
 
 v1.4.13
 =======
-* Add multiple attachments to support tickets + settings to limit quantity and filesize
+* Add multiple attachments to Tiquetes de Solicitudes + settings to limit quantity and filesize
 
 v1.4.12
 =======
@@ -150,7 +150,7 @@ v1.2
 
 v1.1
 ====
-* Transfer ticket number and priority coloring from v9
+* Transfer Num. de Tiquete and priority coloring from v9
 
 v1.0.1
 ======

@@ -31,7 +31,7 @@
       	  <field name="view_type">form</field>
       	  <field name="view_mode">tree,form</field>
       	  <field name="help" type="html">
-	      <p class="oe_view_nocontent_create">Create new sub category</p>
+	      <p class="oe_view_nocontent_create">Create new Subcategoría</p>
 	  </field>
       </record>
 

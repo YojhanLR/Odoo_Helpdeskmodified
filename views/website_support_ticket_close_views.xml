@@ -12,8 +12,8 @@
           	      <field name="message"/>
           	  </group>
                   <footer>
-                        <button string="Close Ticket" name="close_ticket" type="object" class="btn-primary"/>
-                        <button string="Cancel" class="btn-default" special="cancel"/>
+                        <button string="Cerrar Tiquete" name="close_ticket" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-default" special="cancel"/>
                   </footer>
       	      </form>
       	  </field>

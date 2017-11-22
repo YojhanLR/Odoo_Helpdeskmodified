@@ -20,7 +20,7 @@
 	  <field name="view_mode">tree</field>
 	  <field name="help" type="html">
 	      <p>
-	          No Support Tickets priorities found
+	          No Tiquetes de Solicitudes priorities found
 	      </p>
           </field>
       </record>

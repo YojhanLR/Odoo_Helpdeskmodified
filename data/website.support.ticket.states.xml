@@ -3,23 +3,23 @@
     <data noupdate="1">
 
         <record id="website_ticket_state_open" model="website.support.ticket.states">
-            <field name="name">Open</field>
+            <field name="name">Abierto</field>
         </record>
 
         <record id="website_ticket_state_staff_replied" model="website.support.ticket.states">
-            <field name="name">Staff Replied</field>
+            <field name="name">Respuesta Personal</field>
         </record>
 
         <record id="website_ticket_state_customer_replied" model="website.support.ticket.states">
-            <field name="name">Customer Replied</field>
+            <field name="name">Respuesta Cliente</field>
         </record>
 
         <record id="website_ticket_state_customer_closed" model="website.support.ticket.states">
-            <field name="name">Customer Closed</field>
+            <field name="name">Cerrado por el cliente</field>
         </record>
 
         <record id="website_ticket_state_staff_closed" model="website.support.ticket.states">
-            <field name="name">Staff Closed</field>
+            <field name="name">Cerrado</field>
         </record>
         
     </data>     
