@@ -542,15 +542,35 @@ $(document).ready(function() {
     <t t-call="website.layout">
 
       <div id="wrap" class="oe_structure oe_empty">
+
+        
       <section>
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h1 class="text-center">Submit Support Ticket</h1>
+              <h1 class="text-center">Solicitud de Tarjeta Profesional</h1>
+              <h1 class="text-center">
+                <br/>
+              </h1>
+              <h1 class="text-center"/>
+              <p style="-webkit-appearance: inherit; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; margin-bottom: 0px; outline: 0px; padding: 0px;"/>
+              <div style="text-align: justify;"><span style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; -webkit-appearance: inherit; border: none; margin: 0px; outline: 0px; padding: 0px;">A partir de la expedición de la Ley 1090 promulgada el 6 de septiembre de 2006 el único ente autorizado para expedir las tarjetas profesionales de los psicólogos es el Colegio Colombiano de Psicólogos.&amp;nbsp;</span><span style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; -webkit-appearance: inherit; border: none; margin: 0px; outline: 0px; padding: 0px;">La persona que expida su tarjeta profesional, por el mismo costo que tiene ésta ($ 368.850 m/c), podrá colegiarse el solicitante completamente gratis al Colegio por un año, si es de su interés.</span>&amp;nbsp;</div>
+              <div style="text-align: justify;">
+                <br/>
+              </div>
+              <p style="-webkit-appearance: inherit; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; margin-bottom: 0px; outline: 0px; padding: 0px;"/>
+              <div style="text-align: justify;">Colpsic depende de la exactitud de los datos para que el proceso de trámite y entrega de su tarjeta sea exitoso, por favor asegúrese de que los nombres y apellidos concuerden con los registrados en el documento de identificación oficial del solicitante y también que los demás datos estén correctamente diligenciados, antes de enviar el formulario. El tiempo de espera una vez efectuado el pago es aproximadamente 30 días calendario. Si los datos diligenciados en el formulario son incorrectos, la tarjeta no podrá ser entregada y en caso de que se deba efectuar un segundo envío, el costo será asumido directamente por el usuario.</div>
+              <div style="text-align: justify;">
+                <br/>
+              </div>
+              <p style="text-align: justify; -webkit-appearance: inherit; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; margin-bottom: 0px; outline: 0px; padding: 0px;">Tenga en cuenta que la tarjeta profesional será enviada contra entrega, por lo cual en la dirección que se indique, una persona mayor de edad debe estar disponible para recibirla.</p>
             </div>
           </div>
         </div>
       </section>
+
+
+
 
         <form action="/support/ticket/process" method="POST" class="form-horizontal mt32" enctype="multipart/form-data">
             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>

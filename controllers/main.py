@@ -171,7 +171,7 @@ class SupportTicketController(http.Controller):
             partner = http.request.env.user.partner_id
             
             #Add to the communication history
-            partner.message_post(body="Customer " + partner.name + " has sent in a new support ticket", subject="New Support Ticket")
+            partner.message_post(body= partner.name + "ha enviado una nueva solicitud", subject="Nueva solicitud de tarjeta")
             
         else:
             search_partner = request.env['res.partner'].sudo().search([('email','=', values['email'] )])
@@ -252,7 +252,7 @@ class SupportTicketController(http.Controller):
         
         support_ticket.state = request.env['ir.model.data'].sudo().get_object('website_support', 'website_ticket_state_customer_replied')
             
-        request.env['website.support.ticket'].sudo().browse(support_ticket.id).message_post(body=values['comment'], subject="Support Ticket Reply", message_type="comment")
+        request.env['website.support.ticket'].sudo().browse(support_ticket.id).message_post(body=values['comment'], subject="Respuesta de solicitud de tarjeta profesional", message_type="comment")
         
         return werkzeug.utils.redirect("/support/portal/ticket/view/" + str(support_ticket.portal_access_key) )
         
@@ -273,7 +273,7 @@ class SupportTicketController(http.Controller):
             
             ticket.state = request.env['ir.model.data'].sudo().get_object('website_support', 'website_ticket_state_customer_replied')
             
-            request.env['website.support.ticket'].sudo().browse(ticket.id).message_post(body=values['comment'], subject="Support Ticket Reply", message_type="comment")
+            request.env['website.support.ticket'].sudo().browse(ticket.id).message_post(body=values['comment'], subject="Respuesta de solicitud de tarjeta profesional", message_type="comment")
 
         else:
             return "You do not have permission to submit this commment"
