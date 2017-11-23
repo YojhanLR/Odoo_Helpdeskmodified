@@ -544,189 +544,205 @@ $(document).ready(function() {
       <div id="wrap" class="oe_structure oe_empty">
 
         
-      <section>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h1 class="text-center">Solicitud de Tarjeta Profesional</h1>
-              <h1 class="text-center">
-                <br/>
-              </h1>
-              <h1 class="text-center"/>
-              <p style="-webkit-appearance: inherit; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; margin-bottom: 0px; outline: 0px; padding: 0px;"/>
-              <div style="text-align: justify;"><span style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; -webkit-appearance: inherit; border: none; margin: 0px; outline: 0px; padding: 0px;">A partir de la expedición de la Ley 1090 promulgada el 6 de septiembre de 2006 el único ente autorizado para expedir las tarjetas profesionales de los psicólogos es el Colegio Colombiano de Psicólogos.&amp;nbsp;</span><span style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; -webkit-appearance: inherit; border: none; margin: 0px; outline: 0px; padding: 0px;">La persona que expida su tarjeta profesional, por el mismo costo que tiene ésta ($ 368.850 m/c), podrá colegiarse el solicitante completamente gratis al Colegio por un año, si es de su interés.</span>&amp;nbsp;</div>
-              <div style="text-align: justify;">
-                <br/>
-              </div>
-              <p style="-webkit-appearance: inherit; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; margin-bottom: 0px; outline: 0px; padding: 0px;"/>
-              <div style="text-align: justify;">Colpsic depende de la exactitud de los datos para que el proceso de trámite y entrega de su tarjeta sea exitoso, por favor asegúrese de que los nombres y apellidos concuerden con los registrados en el documento de identificación oficial del solicitante y también que los demás datos estén correctamente diligenciados, antes de enviar el formulario. El tiempo de espera una vez efectuado el pago es aproximadamente 30 días calendario. Si los datos diligenciados en el formulario son incorrectos, la tarjeta no podrá ser entregada y en caso de que se deba efectuar un segundo envío, el costo será asumido directamente por el usuario.</div>
-              <div style="text-align: justify;">
-                <br/>
-              </div>
-              <p style="text-align: justify; -webkit-appearance: inherit; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; margin-bottom: 0px; outline: 0px; padding: 0px;">Tenga en cuenta que la tarjeta profesional será enviada contra entrega, por lo cual en la dirección que se indique, una persona mayor de edad debe estar disponible para recibirla.</p>
+          <section>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 class="text-center">Solicitud de Tarjeta Profesional</h1>
+                  <h1 class="text-center">
+                    <br/>
+                </h1>
+                <h1 class="text-center"/>
+                <p style="-webkit-appearance: inherit; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; margin-bottom: 0px; outline: 0px; padding: 0px;"/>
+                <div style="text-align: justify;"><span style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; -webkit-appearance: inherit; border: none; margin: 0px; outline: 0px; padding: 0px;">A partir de la expedición de la Ley 1090 promulgada el 6 de septiembre de 2006 el único ente autorizado para expedir las tarjetas profesionales de los psicólogos es el Colegio Colombiano de Psicólogos.&amp;nbsp;</span><span style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; -webkit-appearance: inherit; border: none; margin: 0px; outline: 0px; padding: 0px;">La persona que expida su tarjeta profesional, por el mismo costo que tiene ésta ($ 368.850 m/c), podrá colegiarse el solicitante completamente gratis al Colegio por un año, si es de su interés.</span>&amp;nbsp;</div>
+                <div style="text-align: justify;">
+                    <br/>
+                </div>
+                <p style="-webkit-appearance: inherit; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; margin-bottom: 0px; outline: 0px; padding: 0px;"/>
+                <div style="text-align: justify;">Colpsic depende de la exactitud de los datos para que el proceso de trámite y entrega de su tarjeta sea exitoso, por favor asegúrese de que los nombres y apellidos concuerden con los registrados en el documento de identificación oficial del solicitante y también que los demás datos estén correctamente diligenciados, antes de enviar el formulario. El tiempo de espera una vez efectuado el pago es aproximadamente 30 días calendario. Si los datos diligenciados en el formulario son incorrectos, la tarjeta no podrá ser entregada y en caso de que se deba efectuar un segundo envío, el costo será asumido directamente por el usuario.</div>
+                <div style="text-align: justify;">
+                    <br/>
+                </div>
+                <p style="text-align: justify; -webkit-appearance: inherit; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; margin-bottom: 0px; outline: 0px; padding: 0px;">Tenga en cuenta que la tarjeta profesional será enviada contra entrega, por lo cual en la dirección que se indique, una persona mayor de edad debe estar disponible para recibirla.</p>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
 
 
 
 
-        <form action="/support/ticket/process" method="POST" class="form-horizontal mt32" enctype="multipart/form-data">
-            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-	    <input style="display:none;" name="my_gold" value="256"/>
-            <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="person_name">Nombres</label>
-                <div class="col-md-7 col-sm-8">
-                    <input type="text" class="form-control" name="person_name" required="True"/>
-                </div>
-            </div>
-            <div t-attf-class="form-group #{error and 'last_name' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="last_name">Apellido</label>
-                <div class="col-md-7 col-sm-8">
-                    <input type="text" class="form-control" name="last_name" required="True" t-attf-value="#{last_name or ''}"/>
-                </div>
-            </div>
-
-            <div t-attf-class="form-group #{error and 'num_id' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="num_id">Número de identificación</label>
-                <div class="col-md-7 col-sm-8">
-                    <input type="text" class="form-control" name="num_id" required="True" t-attf-value="#{num_id or ''}"/>
-                </div>
+<form action="/support/ticket/process" method="POST" class="form-horizontal mt32" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+    <input style="display:none;" name="my_gold" value="256"/>
+    <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="person_name">Nombres</label>
+        <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="person_name" required="True"/>
         </div>
-        
-        <div t-attf-class="form-group #{error and 'country' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="country">Pais de origen</label>
-                <div class="col-md-7 col-sm-8">
-                    <input type="text" class="form-control" name="country" required="True" t-attf-value="#{country or ''}"/>
-                </div>
+    </div>
+    <div t-attf-class="form-group #{error and 'last_name' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="last_name">Apellido</label>
+        <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="last_name" required="True" t-attf-value="#{last_name or ''}"/>
         </div>
-        
-        <div t-attf-class="form-group #{error and 'departamento' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="departamento">Departamento</label>
-                <div class="col-md-7 col-sm-8">
-                    <input type="text" class="form-control" name="departamento" required="True" t-attf-value="#{departamento or ''}"/>
-                </div>
+    </div>
+
+    <div t-attf-class="form-group #{error and 'num_id' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="num_id">Número de identificación</label>
+        <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="num_id" required="True" t-attf-value="#{num_id or ''}"/>
         </div>
-        
-        <div t-attf-class="form-group #{error and 'city_origin' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="city_origin">Ciudad de origen</label>
-                <div class="col-md-7 col-sm-8">
-                    <input type="text" class="form-control" name="city_origin" required="True" t-attf-value="#{city_origin or ''}"/>
-                </div>
-        </div>
-        
-        <div t-attf-class="form-group #{error and 'school' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="school">Universidad</label>
-                <div class="col-md-7 col-sm-8">
-                    <input type="text" class="form-control" name="school" required="True" t-attf-value="#{school or ''}"/>
-                </div>
-        </div>
-        
-        
-        <div t-attf-class="form-group #{error and 'address' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="address">Dirección</label>
-                <div class="col-md-7 col-sm-8">
-                    <input type="text" class="form-control" name="address" required="True" t-attf-value="#{address or ''}"/>
-                </div>
-        </div>
-        
-         <div t-attf-class="form-group #{error and 'phone_number' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="phone_number">Número de teléfono</label>
-                <div class="col-md-7 col-sm-8">
-                    <input type="text" class="form-control" name="phone_number" required="True" t-attf-value="#{phone_number or ''}"/>
-                </div>
-        </div>
-        
-            <div name="email_from_container" t-attf-class="form-group #{error and 'email' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="email">Email</label>
-                <div class="col-md-7 col-sm-8">
-                    <input type="email" class="form-control" name="email" required="True"/>
-                </div>
-            </div>
-
-           <script>
-
-           $(document).ready(function() {
-
-               update_sub_categories()
-           
-               $("#category").change(function() {
-
-                    update_sub_categories()
-
-               });
-
-
-               $('#file').change(function(){
-                   if(this.files.length > <t t-esc="setting_max_ticket_attachments"/>) {
-                       alert("You can only upload " + <t t-esc="setting_max_ticket_attachments"/> + " files");
-                   }
-
-                   for (var x in this.files) {
-                       if (this.files[x].size / 1024 > <t t-esc="setting_max_ticket_attachment_filesize"/>) {
-                           alert(this.files[x].name + " exceeds the " + <t t-esc="setting_max_ticket_attachment_filesize"/> + "KB file size limit");
-                           $('#file').val('');
-                       }
-                   }
-                   
-               });
-
-            });
-
-            function update_sub_categories() {
-
-                $.ajax({url: "/support/subcategories/fetch?category=" + $("#category").val(), success: function(result){
-                    $("#subcategoy").html(result);
-                }});
-            
-            }
-
-
-            </script>
-
-            <div t-attf-class="form-group #{error and 'category' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="name">Categoria</label>
-                <div class="col-md-7 col-sm-8">
-                    <select class="form-control" id="category" name="category">
-                        <t t-foreach="categories" t-as="category">
-		            <option t-attf-value="#{category.id}"><t t-esc="category.name"/></option>
-                        </t>
-                    </select>
-                </div>
-            </div>
-            <div id="subcategoy">
-            
-            </div>
-            <div name="subject_container" t-attf-class="form-group #{error and 'subject' in error and 'has-error' or ''}">
-            <label class="col-md-3 col-sm-4 control-label" for="subject">Asunto</label>
-            <div class="col-md-7 col-sm-8">
-                <input type="subject" class="form-control" name="subject" required="True"/>
-            </div>
-            </div>
-            <div name="file_container" t-attf-class="form-group #{error and 'file' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="file">Añadir Archivos</label>
-	        <div class="col-md-7 col-sm-8">
-                    <div class="btn btn-default btn-file col-md-12"><input name="file" id="file" type="file" multiple="multiple"/></div>
-                </div>
-            </div>
-            <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
-                <label class="col-md-3 col-sm-4 control-label" for="description">Comentarios Adicionales</label>
-                <div class="col-md-7 col-sm-8">
-                    <textarea  class="form-control" name="description" style="min-height: 120px" required="True"></textarea>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
-                    <button class="btn btn-primary btn-lg">Enviar solicitud</button>
-                </div>
-            </div>
-        </form>
-
-      </div>
-    </t>
+    </div>
     
+    <div t-attf-class="form-group #{error and 'country' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="country">Pais de origen</label>
+        <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="country" required="True" t-attf-value="#{country or ''}"/>
+        </div>
+    </div>
+    
+    <div t-attf-class="form-group #{error and 'departamento' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="departamento">Departamento</label>
+        <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="departamento" required="True" t-attf-value="#{departamento or ''}"/>
+        </div>
+    </div>
+    
+    <div t-attf-class="form-group #{error and 'city_origin' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="city_origin">Ciudad de origen</label>
+        <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="city_origin" required="True" t-attf-value="#{city_origin or ''}"/>
+        </div>
+    </div>
+    
+    <div t-attf-class="form-group #{error and 'school' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="school">Universidad</label>
+        <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="school" required="True" t-attf-value="#{school or ''}"/>
+        </div>
+    </div>
+    
+    
+    <div t-attf-class="form-group #{error and 'address' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="address">Dirección</label>
+        <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="address" required="True" t-attf-value="#{address or ''}"/>
+        </div>
+    </div>
+    
+    <div t-attf-class="form-group #{error and 'phone_number' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="phone_number">Número de teléfono</label>
+        <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="phone_number" required="True" t-attf-value="#{phone_number or ''}"/>
+        </div>
+    </div>
+    
+    <div name="email_from_container" t-attf-class="form-group #{error and 'email' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="email">Email</label>
+        <div class="col-md-7 col-sm-8">
+            <input type="email" class="form-control" name="email" required="True"/>
+        </div>
+    </div>
+
+    <script>
+
+       $(document).ready(function() {
+
+       update_sub_categories()
+       
+       $("#category").change(function() {
+
+       update_sub_categories()
+
+       });
+
+
+       $('#file').change(function(){
+       if(this.files.length &gt; <t t-esc="setting_max_ticket_attachments"/>) {
+       alert("You can only upload " + <t t-esc="setting_max_ticket_attachments"/> + " files");
+       }
+
+       for (var x in this.files) {
+       if (this.files[x].size / 1024 &gt; <t t-esc="setting_max_ticket_attachment_filesize"/>) {
+       alert(this.files[x].name + " exceeds the " + <t t-esc="setting_max_ticket_attachment_filesize"/> + "KB file size limit");
+       $('#file').val('');
+       }
+       }
+       
+       });
+
+       });
+
+       function update_sub_categories() {
+
+       $.ajax({url: "/support/subcategories/fetch?category=" + $("#category").val(), success: function(result){
+       $("#subcategoy").html(result);
+       }});
+       
+       }
+
+
+   </script>
+
+   <div t-attf-class="form-group #{error and 'category' in error and 'has-error' or ''}">
+    <label class="col-md-3 col-sm-4 control-label" for="name">Categoria</label>
+    <div class="col-md-7 col-sm-8">
+        <select onchange = "onCambio()" class="form-control" id="category" name="category">
+            <t t-foreach="categories" t-as="category">
+                <option t-attf-value="#{category.id}"><t t-esc="category.name"/></option>
+            </t>
+        </select>
+    </div>
+</div>
+<div id="subcategoy">
+    
+</div>
+<div  style="visibility: hidden"  name="subject_container" t-attf-class="form-group #{error and 'subject' in error and 'has-error' or ''}">
+    <label class="col-md-3 col-sm-4 control-label" for="subject">Asunto</label>
+    <div class="col-md-7 col-sm-8">
+        <input id ="subject" type="text" class="form-control" name="subject" required="True"/>
+    </div>
+</div>
+<div name="file_container" t-attf-class="form-group #{error and 'file' in error and 'has-error' or ''}">
+    <label class="col-md-3 col-sm-4 control-label" for="file">Añadir Archivos</label>
+    <div class="col-md-7 col-sm-8">
+        <div class="btn btn-default btn-file col-md-12"><input name="file" id="file" type="file" multiple="multiple"/></div>
+    </div>
+</div>
+<div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
+    <label class="col-md-3 col-sm-4 control-label" for="description">Comentarios Adicionales</label>
+    <div class="col-md-7 col-sm-8">
+        <textarea class="form-control" name="description" style="min-height: 120px" required="True"/>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+        <button class="btn btn-primary btn-lg">Enviar solicitud</button>
+    </div>
+</div>
+</form>
+
+</div>
+
+<script type="text/javascript">
+    
+    var e = document.getElementById("category");
+    var strUser = e.options[e.selectedIndex].text;
+    document.getElementById("subject").value = strUser;
+    console.log(strUser);
+
+    function onCambio(){
+    var e = document.getElementById("category");
+    var strUser = e.options[e.selectedIndex].text;
+    document.getElementById("subject").value = strUser;
+    }
+    
+</script>
+
+</t>
+
 </template>
 
 </data>
