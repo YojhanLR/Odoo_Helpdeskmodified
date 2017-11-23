@@ -436,62 +436,35 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
 
 <template id="support_help_pages" name="Support Help Pages" page="True">
     <t t-call="website.layout">
-    
+    <t t-if="request.env.user.partner_id.name != 'Public user'">  
+    <div class="container">
+      <section>
         <div class="container">
-            <div class="col-md-12 mt16 mb16">
-                <div class="pull-right">
-                    <a href="/support/ticket/submit">Enviar una solicitud</a>
-                    <t t-if="request.env.user.partner_id.name != 'Public user'">
-                        | <a href="/support/ticket/view">Mis solicitudes</a>
-                    </t>
-                </div>
+          <div class="row mt16 mb16">
+            <div class="col-md-4 col-md-offset-4">
+              <img class="img img-responsive" src="/web/image/445" style="margin: 0px auto;" alt="Odoo CMS - una imagen grande" data-original-title="" title=""/>
             </div>
-
-<script>
-
-$(document).ready(function() {
-    $("#search_help_pages").autocomplete({
-        source: '/support/help/auto-complete',
-        minLength: 1,
-        select: function( event, ui ) {
-            window.location.href = ui.item.value;
-        }
-        }).data("ui-autocomplete")._renderItem = function (ul, item) {
-            return $("<li></li>")
-                .data("item.autocomplete", item)
-                .append("<a>" + item.label + "</a>")
-                .appendTo(ul);
-    };
-});
-
-</script>
-
-            <div class="mt16 mb16">
-                <h1 class="text-center">Help Pages</h1>
-                
-                <div name="search_from_container" t-attf-class="form-group">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
-                        <input type="search" class="form-control" id="search_help_pages" name="search" placeholder="Search"/>
-                    </div>
-                    <div class="col-md-3"></div>
-                </div>
-                
-            </div>
-            
-            <div class="mt16 mb16 col-md-12">
-                <t t-foreach="help_groups" t-as="help_group">
-                    <div class="col-md-4">
-                        <h2 t-field="help_group.name"></h2>
-                        <t t-foreach="help_group.page_ids" t-as="help_page">
-                            <h3 class="mt8 mb8"><a t-attf-href="#{help_page.url_generated}" t-field="help_page.name"></a></h3>
-                        </t>
-                    </div>
-                </t>
-            </div>
-          
+          </div>
         </div>
+      </section>
+      <section class="s_features" style="">
+        <div class="container">
+          <div class="row mt16 mb16">
+            <div class="text-center col-md-2 col-md-offset-2">
+              <h3 class="mt8 mb0"><a href="/support/ticket/submit" class="btn btn-default"><span class="fa fa-hand-pointer-o fa-5x" style="" data-original-title="" title=""/></a>Nueva Solicitud<br/></h3>
+              <p class="text-muted">Registre aquí una nueva solicitud de tarjeta profesional, ya sea para expedición o renovación.<br/></p>
+            </div>
+            <div class="col-md-4 text-center"> &amp;nbsp;</div>
+            <div class="text-center mb0 col-md-2">
+              <h3 class="mb0 mt8"><a href="/support/ticket/view" class="btn btn-default"><span class="fa fa-copy fa-5x" data-original-title="" title="" style=""/></a>Estado de Solicitudes<br/></h3>
+              <p class="text-muted">Consulte de manera rápida el estado de las solicitudes previamente realizadas por usted.<br/></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
     </t>
+  </t>
 </template>
 
 <template id="content_new_help" inherit_id="website.user_navbar">
@@ -543,7 +516,7 @@ $(document).ready(function() {
 
       <div id="wrap" class="oe_structure oe_empty">
 
-        
+
           <section>
             <div class="container">
               <div class="row">
@@ -594,50 +567,50 @@ $(document).ready(function() {
             <input type="text" class="form-control" name="num_id" required="True" t-attf-value="#{num_id or ''}"/>
         </div>
     </div>
-    
+
     <div t-attf-class="form-group #{error and 'country' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="country">Pais de origen</label>
         <div class="col-md-7 col-sm-8">
             <input type="text" class="form-control" name="country" required="True" t-attf-value="#{country or ''}"/>
         </div>
     </div>
-    
+
     <div t-attf-class="form-group #{error and 'departamento' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="departamento">Departamento</label>
         <div class="col-md-7 col-sm-8">
             <input type="text" class="form-control" name="departamento" required="True" t-attf-value="#{departamento or ''}"/>
         </div>
     </div>
-    
+
     <div t-attf-class="form-group #{error and 'city_origin' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="city_origin">Ciudad de origen</label>
         <div class="col-md-7 col-sm-8">
             <input type="text" class="form-control" name="city_origin" required="True" t-attf-value="#{city_origin or ''}"/>
         </div>
     </div>
-    
+
     <div t-attf-class="form-group #{error and 'school' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="school">Universidad</label>
         <div class="col-md-7 col-sm-8">
             <input type="text" class="form-control" name="school" required="True" t-attf-value="#{school or ''}"/>
         </div>
     </div>
-    
-    
+
+
     <div t-attf-class="form-group #{error and 'address' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="address">Dirección</label>
         <div class="col-md-7 col-sm-8">
             <input type="text" class="form-control" name="address" required="True" t-attf-value="#{address or ''}"/>
         </div>
     </div>
-    
+
     <div t-attf-class="form-group #{error and 'phone_number' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="phone_number">Número de teléfono</label>
         <div class="col-md-7 col-sm-8">
             <input type="text" class="form-control" name="phone_number" required="True" t-attf-value="#{phone_number or ''}"/>
         </div>
     </div>
-    
+
     <div name="email_from_container" t-attf-class="form-group #{error and 'email' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="email">Email</label>
         <div class="col-md-7 col-sm-8">
@@ -650,7 +623,7 @@ $(document).ready(function() {
        $(document).ready(function() {
 
        update_sub_categories()
-       
+
        $("#category").change(function() {
 
        update_sub_categories()
@@ -669,7 +642,7 @@ $(document).ready(function() {
        $('#file').val('');
        }
        }
-       
+
        });
 
        });
@@ -679,7 +652,7 @@ $(document).ready(function() {
        $.ajax({url: "/support/subcategories/fetch?category=" + $("#category").val(), success: function(result){
        $("#subcategoy").html(result);
        }});
-       
+
        }
 
 
@@ -696,7 +669,7 @@ $(document).ready(function() {
     </div>
 </div>
 <div id="subcategoy">
-    
+
 </div>
 <div  style="visibility: hidden"  name="subject_container" t-attf-class="form-group #{error and 'subject' in error and 'has-error' or ''}">
     <label class="col-md-3 col-sm-4 control-label" for="subject">Asunto</label>
@@ -727,7 +700,7 @@ $(document).ready(function() {
 </div>
 
 <script type="text/javascript">
-    
+
     var e = document.getElementById("category");
     var strUser = e.options[e.selectedIndex].text;
     document.getElementById("subject").value = strUser;
