@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-<data>
+    <data>
 
         <record id="support_ticket_survey" model="mail.template">
             <field name="name">Support Ticket Survey</field>
@@ -18,12 +18,12 @@
                 <b>Num. de Tiquete:</b> ${object.ticket_number or object.id}<br/>
                 <b>Categoria del tiquete:</b> 
                 % if object.category.name :
-                    ${object.category.name}
+                ${object.category.name}
                 % endif
                 <br/>
                 <b>Comentarios adicionales:</b><br/>
                 ${object.description|safe}
-            ]]>
+                ]]>
             </field>
         </record>
         
@@ -42,7 +42,7 @@
                 <p>Subject: ${object.subject}</p>
                 <p>${object.description|safe}</p>
                 <p>Click <a href="_ticket_url_">here</a> to view this support ticket online</p>
-            ]]>
+                ]]>
             </field>
         </record>
 
@@ -60,13 +60,13 @@
                 <b>Num. de Tiquete:</b> ${object.ticket_number or object.id}<br/>
                 <b>Categoria del tiquete:</b> 
                 % if object.category.name :
-                    ${object.category.name}
+                ${object.category.name}
                 % endif
                 <br/>
                 <b>Comentarios adicionales:</b><br/>
                 ${object.description|safe}
                 
-            ]]>
+                ]]>
             </field>
         </record>
 
@@ -85,13 +85,13 @@
                 <b>Num. de Tiquete:</b> ${object.ticket_number or object.id}<br/>
                 <b>Categoria del tiquete:</b> 
                 % if object.category.name :
-                    ${object.category.name}
+                ${object.category.name}
                 % endif
                 <br/>
                 <b>Comentarios adicionales:</b><br/>
                 ${object.description|safe}
                 
-            ]]>
+                ]]>
             </field>
         </record>
 
@@ -111,13 +111,13 @@
                 <b>Num. de Tiquete:</b> ${object.ticket_number or object.id}<br/>
                 <b>Categoria del tiquete:</b> 
                 % if object.category.name :
-                    ${object.category.name}
+                ${object.category.name}
                 % endif
                 <br/>
                 <b>Comentarios adicionales:</b><br/>
                 ${object.description|safe}
                 
-            ]]>
+                ]]>
             </field>
         </record>
 
@@ -140,15 +140,15 @@
                 <b>Num. de Tiquete:</b> ${object.ticket_number or object.id}<br/>
                 <b>Categoria del tiquete :</b> 
                 % if object.category.name :
-                    ${object.category.name}
+                ${object.category.name}
                 % endif
                 <br/>
                 <b>Comentarios adicionales:</b><br/>
                 ${object.description|safe}
                 
-            ]]>
+                ]]>
 
-            <!-- <b>Ver Ticket en linea:</b> <a href="/support/portal/ticket/view/${object.portal_access_key}">here</a><br/> -->
+                <!-- <b>Ver Ticket en linea:</b> <a href="/support/portal/ticket/view/${object.portal_access_key}">here</a><br/> -->
 
 
             </field>
@@ -173,7 +173,7 @@
                 <br/>
                 <b>Comentarios adicionales:</b><br/>
                 ${object.ticket_id.description|safe}
-            ]]>
+                ]]>
             </field>
 
 
@@ -186,10 +186,10 @@
                  % endif
 
 
-            -->
-        </record>        
-        
-        <record id="support_ticket_reply_wrapper_support" model="mail.template">
+             -->
+         </record>        
+
+         <record id="support_ticket_reply_wrapper_support" model="mail.template">
             <field name="name">Support Ticket Reply Wrapper (support@)</field>
             <field name="model_id" ref="model_website_support_ticket_compose"></field>
             <field name="subject">${object.subject}</field>
@@ -209,142 +209,142 @@
                 <br/>
                 <b>Comentarios adicionales:</b><br/>
                 ${object.ticket_id.description|safe}
-            ]]>
+                ]]>
             </field>
         </record>
 
-<template id="support_ticket_survey_page" name="Support Ticket Survey" page="True">
-    <t t-call="website.layout">
-        <div class="container">
+        <template id="support_ticket_survey_page" name="Support Ticket Survey" page="True">
+            <t t-call="website.layout">
+                <div class="container">
 
-            <div class="mt16 mb16">
-                <h1 class="text-center">Your Feedback</h1>
+                    <div class="mt16 mb16">
+                        <h1 class="text-center">Your Feedback</h1>
+                    </div>
+
+                    <p>Please give us feedback on our support service</p>
+                    <blockquote><t t-raw="support_ticket.description"/></blockquote>
+
+                    <form method="POST" t-attf-action="/support/survey/process/#{support_ticket.portal_access_key}">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                        <style>
+                            label > input{ /* HIDE RADIO */
+                            visibility: hidden; /* Makes input not-clickable */
+                            position: absolute; /* Remove input from document flow */
+                            }
+
+                            label > input + img{ /* IMAGE STYLES */
+                            cursor:pointer;
+                            border:2px solid transparent;
+                            }
+
+                            label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+                            border:2px solid #f00;
+                            }
+                        </style>
+                        <label>
+                            <input type="radio" name="rating" value="5"/>
+                            <img src="/website_support/static/src/img/5-star.jpg"/>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="4"/>
+                            <img src="/website_support/static/src/img/4-star.jpg"/>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="3"/>
+                            <img src="/website_support/static/src/img/3-star.jpg"/>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="2"/>
+                            <img src="/website_support/static/src/img/2-star.jpg"/>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="1"/>
+                            <img src="/website_support/static/src/img/1-star.jpg"/>
+                        </label>
+
+                        <div class="form-group">
+                         <label for="comment">Comment</label>
+                         <textarea class="form-control" rows="5" name="comment"></textarea>
+                     </div>
+
+                     <div class="form-group">
+                        <button class="btn btn-primary btn-lg">Submit Feedback</button>
+                    </div>
+
+                </form>
+
             </div>
+        </t>
+    </template>
 
-            <p>Please give us feedback on our support service</p>
-            <blockquote><t t-raw="support_ticket.description"/></blockquote>
+    <template id="support_ticket_view_list" name="My Tiquetes de Solicitudes" page="True">
+        <t t-call="website.layout">
+            <div class="container">
 
-            <form method="POST" t-attf-action="/support/survey/process/#{support_ticket.portal_access_key}">
-                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
 
-<style>
-label > input{ /* HIDE RADIO */
-  visibility: hidden; /* Makes input not-clickable */
-  position: absolute; /* Remove input from document flow */
-}
-
-label > input + img{ /* IMAGE STYLES */
-  cursor:pointer;
-  border:2px solid transparent;
-}
-
-label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
-  border:2px solid #f00;
-}
-</style>
-                <label>
-                    <input type="radio" name="rating" value="5"/>
-                    <img src="/website_support/static/src/img/5-star.jpg"/>
-                </label>
-
-                <label>
-                    <input type="radio" name="rating" value="4"/>
-                    <img src="/website_support/static/src/img/4-star.jpg"/>
-                </label>
-
-                <label>
-                    <input type="radio" name="rating" value="3"/>
-                    <img src="/website_support/static/src/img/3-star.jpg"/>
-                </label>
-
-                <label>
-                    <input type="radio" name="rating" value="2"/>
-                    <img src="/website_support/static/src/img/2-star.jpg"/>
-                </label>
-
-                <label>
-                    <input type="radio" name="rating" value="1"/>
-                    <img src="/website_support/static/src/img/1-star.jpg"/>
-                </label>
-                
-                <div class="form-group">
-                     <label for="comment">Comment</label>
-                    <textarea class="form-control" rows="5" name="comment"></textarea>
+                <div class="mt16 mb16">
+                    <h1 class="text-center">Mis Tiquetes de Solicitudes</h1>
                 </div>
 
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <t t-if="ticket_count > 0"> 
+                        <table class="table table-striped table-bordered table-hover table-condensed">
+                            <tr><th>By</th><th>Subject</th><th>Category</th><th>State</th><th>Create Date</th></tr>
+                            <t t-foreach="support_tickets" t-as="support_ticket">
+                                <tr><td><t t-esc="support_ticket.partner_id.name"/></td><td><a t-attf-href="/support/ticket/view/#{support_ticket.id}"><t t-esc="support_ticket.subject"/></a></td><td><t t-esc="support_ticket.category.name"/></td><td><t t-esc="support_ticket.state.name"/></td><td><t t-esc="support_ticket.create_date"/></td></tr>
+                            </t>
+                        </table>
+                    </t>
+                    <t t-if="ticket_count == 0">
+                        <div class="mt16 mb16">
+                          <h2 class="text-center">No tienes solicitudes realizadas</h2>
+                      </div>
+                  </t>
+              </div>
+              <div class="col-md-3"></div>
+          </div>
+
+      </t>
+  </template>
+
+  <template id="help_page" name="Help Page" page="True">
+    <t t-call="website.layout">
+        <div class="container">
+            <div class="mt16 mb16">
+             <h1 class="text-center" t-field="help_page.name"/>
+             <div id="wrap" class="oe_structure oe_empty" t-field="help_page.content" style="min-height:200px;"/>
+
+             <!-- Submit Feedback -->
+             <form method="GET" t-attf-action="/support/feedback/process/#{help_page.id}">
+
+                <div t-attf-class="form-group #{error and 'rating' in error and 'has-error' or ''}">
+                    <label class="control-label" for="rating">Rating</label><br/>                  
+                    <input type="radio" name="rating" value="1"/> 1 Star
+                    <input type="radio" name="rating" value="2"/> 2 Star
+                    <input type="radio" name="rating" value="3"/> 3 Star
+                    <input type="radio" name="rating" value="4"/> 4 Star
+                    <input type="radio" name="rating" value="5"/> 5 Star
+                </div>
+                
+                <div t-attf-class="form-group mt16 mb16 #{error and 'feedback' in error and 'has-error' or ''}">
+                    <label class="control-label" for="feedback">Feedback</label>
+                    <textarea class="form-control" name="feedback" style="min-height: 120px" required="True"></textarea>
+                </div>
+                
                 <div class="form-group">
                     <button class="btn btn-primary btn-lg">Submit Feedback</button>
                 </div>
-
             </form>
-            
+
         </div>
-    </t>
-</template>
-
-<template id="support_ticket_view_list" name="My Tiquetes de Solicitudes" page="True">
-    <t t-call="website.layout">
-        <div class="container">
-
-
-            <div class="mt16 mb16">
-                <h1 class="text-center">Mis Tiquetes de Solicitudes</h1>
-            </div>
-        
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <t t-if="ticket_count > 0"> 
-                    <table class="table table-striped table-bordered table-hover table-condensed">
-                        <tr><th>By</th><th>Subject</th><th>Category</th><th>State</th><th>Create Date</th></tr>
-                        <t t-foreach="support_tickets" t-as="support_ticket">
-                            <tr><td><t t-esc="support_ticket.partner_id.name"/></td><td><a t-attf-href="/support/ticket/view/#{support_ticket.id}"><t t-esc="support_ticket.subject"/></a></td><td><t t-esc="support_ticket.category.name"/></td><td><t t-esc="support_ticket.state.name"/></td><td><t t-esc="support_ticket.create_date"/></td></tr>
-                        </t>
-                </table>
-                </t>
-                <t t-if="ticket_count == 0">
-                    <div class="mt16 mb16">
-		        <h2 class="text-center">No tienes solicitudes realizadas</h2>
-                    </div>
-                </t>
-            </div>
-            <div class="col-md-3"></div>
-        </div>
-        
-    </t>
-</template>
-
-<template id="help_page" name="Help Page" page="True">
-    <t t-call="website.layout">
-        <div class="container">
-            <div class="mt16 mb16">
-	        <h1 class="text-center" t-field="help_page.name"/>
-		<div id="wrap" class="oe_structure oe_empty" t-field="help_page.content" style="min-height:200px;"/>
-                
-                <!-- Submit Feedback -->
-                <form method="GET" t-attf-action="/support/feedback/process/#{help_page.id}">
-                
-                    <div t-attf-class="form-group #{error and 'rating' in error and 'has-error' or ''}">
-                        <label class="control-label" for="rating">Rating</label><br/>                  
-                        <input type="radio" name="rating" value="1"/> 1 Star
-                        <input type="radio" name="rating" value="2"/> 2 Star
-                        <input type="radio" name="rating" value="3"/> 3 Star
-                        <input type="radio" name="rating" value="4"/> 4 Star
-                        <input type="radio" name="rating" value="5"/> 5 Star
-                    </div>
-                
-                    <div t-attf-class="form-group mt16 mb16 #{error and 'feedback' in error and 'has-error' or ''}">
-                        <label class="control-label" for="feedback">Feedback</label>
-                        <textarea class="form-control" name="feedback" style="min-height: 120px" required="True"></textarea>
-                    </div>
-                
-                    <div class="form-group">
-                        <button class="btn btn-primary btn-lg">Submit Feedback</button>
-                    </div>
-                </form>
-                
-            </div>
-        </div>
-    </t>
+    </div>
+</t>
 </template>
 
 <template id="assets_editor" inherit_id="website.assets_editor" name="Website Support Editor">
@@ -364,18 +364,18 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
         <div class="container mt16 mb16">
 
             <style>
-            
-            /* Worlds laziest way of striping replies... */
-            .moz-cite-prefix, blockquote {
-             display :none
-            }
-            
+
+                /* Worlds laziest way of striping replies... */
+                .moz-cite-prefix, blockquote {
+                display :none
+                }
+
             </style>
 
             <div class="mt16 mb16">
                 <h1 class="text-center"><t t-esc="support_ticket.subject"/></h1>
             </div>
-        
+
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <b>Category</b> <t t-esc="support_ticket.category.name"/><br/>
@@ -411,21 +411,21 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
                         <b>Add Comment</b><br/>
                         <textarea  class="form-control" name="comment" style="min-height: 120px" required="True"></textarea>
                         <br/>
-                    
+
                         <input type="hidden" name="portal_access_key" t-attf-value="#{portal_access_key}"/>
                         <button class="btn btn-primary btn-lg">Submit</button>
-		    </form>
-		</t>
+                    </form>
+                </t>
                 <t t-if="not portal_access_key">
                     <form method="GET" t-attf-action="/support/ticket/comment">
                         <b>Add Comment</b><br/>
                         <textarea  class="form-control" name="comment" style="min-height: 120px" required="True"></textarea>
                         <br/>
-                    
+
                         <input type="hidden" name="ticket_id" t-attf-value="#{support_ticket.id}"/>
                         <button class="btn btn-primary btn-lg">Submit</button>
-		   </form>
-                
+                    </form>
+
                 </t>
             </div>
             <div class="col-md-3"></div>
@@ -436,16 +436,16 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
 
 <template id="support_help_pages" name="Support Help Pages" page="True">
     <t t-call="website.layout">
-    <t t-if="request.env.user.partner_id.name != 'Public user'">  
-    <div class="container">
-      <section>
-        <div class="container">
-          <div class="row mt16 mb16">
-            <div class="col-md-4 col-md-offset-4">
-              <img class="img img-responsive" src="/web/image/445" style="margin: 0px auto;" alt="Odoo CMS - una imagen grande" data-original-title="" title=""/>
-            </div>
+        <t t-if="request.env.user.partner_id.name != 'Public user'">  
+            <div class="container">
+              <section>
+                <div class="container">
+                  <div class="row mt16 mb16">
+                    <div class="col-md-4 col-md-offset-4">
+                      <img class="img img-responsive" src="/web/image/445" style="margin: 0px auto;" alt="Odoo CMS - una imagen grande" data-original-title="" title=""/>
+                  </div>
+              </div>
           </div>
-        </div>
       </section>
       <section class="s_features" style="">
         <div class="container">
@@ -453,26 +453,26 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
             <div class="text-center col-md-2 col-md-offset-2">
               <h3 class="mt8 mb0"><a href="/support/ticket/submit" class="btn btn-default"><span class="fa fa-hand-pointer-o fa-5x" style="" data-original-title="" title=""/></a>Nueva Solicitud<br/></h3>
               <p class="text-muted">Registre aquí una nueva solicitud de tarjeta profesional, ya sea para expedición o renovación.<br/></p>
-            </div>
-            <div class="col-md-4 text-center"> &amp;nbsp;</div>
-            <div class="text-center mb0 col-md-2">
+          </div>
+          <div class="col-md-4 text-center"> &amp;nbsp;</div>
+          <div class="text-center mb0 col-md-2">
               <h3 class="mb0 mt8"><a href="/support/ticket/view" class="btn btn-default"><span class="fa fa-copy fa-5x" data-original-title="" title="" style=""/></a>Estado de Solicitudes<br/></h3>
               <p class="text-muted">Consulte de manera rápida el estado de las solicitudes previamente realizadas por usted.<br/></p>
-            </div>
           </div>
-        </div>
-      </section>
-    </div>
-    </t>
-  </t>
+      </div>
+  </div>
+</section>
+</div>
+</t>
+</t>
 </template>
 
 <template id="content_new_help" inherit_id="website.user_navbar">
     <xpath expr="//div[@id='o_website_add_page_modal']//ul" position="inside">
         <li groups="event.group_event_manager"><a href="#" data-action="new_event"><i class="fa fa-glass"/><p>New Event</p></a></li>
 
-         <li><a href="#" data-action="new_help_group"><i class="fa fa-question-circle"/><p>New Help Group</p></a></li>
-         <li><a href="#" data-action="new_help_page"><i class="fa fa-info-circle"/><p>New Help Page</p></a></li>
+        <li><a href="#" data-action="new_help_group"><i class="fa fa-question-circle"/><p>New Help Group</p></a></li>
+        <li><a href="#" data-action="new_help_page"><i class="fa fa-info-circle"/><p>New Help Page</p></a></li>
 
     </xpath>
 </template>
@@ -551,48 +551,258 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
     <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="person_name">Nombres</label>
         <div class="col-md-7 col-sm-8">
-            <input type="text" class="form-control" name="person_name" required="True"/>
+            <input pattern="[A-Za-z\sáéíóú]{2,}" type="text" class="form-control" name="person_name" required="True"/>
         </div>
     </div>
     <div t-attf-class="form-group #{error and 'last_name' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="last_name">Apellido</label>
         <div class="col-md-7 col-sm-8">
-            <input type="text" class="form-control" name="last_name" required="True" t-attf-value="#{last_name or ''}"/>
-        </div>
-    </div>
-
-    <div t-attf-class="form-group #{error and 'num_id' in error and 'has-error' or ''}">
-        <label class="col-md-3 col-sm-4 control-label" for="num_id">Número de identificación</label>
-        <div class="col-md-7 col-sm-8">
-            <input type="text" class="form-control" name="num_id" required="True" t-attf-value="#{num_id or ''}"/>
+            <input pattern="[A-Za-z\sáéíóú]{2,}" type="text" class="form-control" name="last_name" required="True" t-attf-value="#{last_name or ''}"/>
         </div>
     </div>
 
     <div t-attf-class="form-group #{error and 'country' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="country">Pais de origen</label>
         <div class="col-md-7 col-sm-8">
-            <input type="text" class="form-control" name="country" required="True" t-attf-value="#{country or ''}"/>
+            <select  class="form-control" id="country" name="country">
+                <option value="Afganistán" id="AF">Afganistán</option>
+                <option value="Albania" id="AL">Albania</option>
+                <option value="Alemania" id="DE">Alemania</option>
+                <option value="Andorra" id="AD">Andorra</option>
+                <option value="Angola" id="AO">Angola</option>
+                <option value="Anguila" id="AI">Anguila</option>
+                <option value="Antártida" id="AQ">Antártida</option>
+                <option value="Antigua y Barbuda" id="AG">Antigua y Barbuda</option>
+                <option value="Antillas holandesas" id="AN">Antillas holandesas</option>
+                <option value="Arabia Saudí" id="SA">Arabia Saudí</option>
+                <option value="Argelia" id="DZ">Argelia</option>
+                <option value="Argentina" id="AR">Argentina</option>
+                <option value="Armenia" id="AM">Armenia</option>
+                <option value="Aruba" id="AW">Aruba</option>
+                <option value="Australia" id="AU">Australia</option>
+                <option value="Austria" id="AT">Austria</option>
+                <option value="Azerbaiyán" id="AZ">Azerbaiyán</option>
+                <option value="Bahamas" id="BS">Bahamas</option>
+                <option value="Bahrein" id="BH">Bahrein</option>
+                <option value="Bangladesh" id="BD">Bangladesh</option>
+                <option value="Barbados" id="BB">Barbados</option>
+                <option value="Bélgica" id="BE">Bélgica</option>
+                <option value="Belice" id="BZ">Belice</option>
+                <option value="Benín" id="BJ">Benín</option>
+                <option value="Bermudas" id="BM">Bermudas</option>
+                <option value="Bhután" id="BT">Bhután</option>
+                <option value="Bielorrusia" id="BY">Bielorrusia</option>
+                <option value="Birmania" id="MM">Birmania</option>
+                <option value="Bolivia" id="BO">Bolivia</option>
+                <option value="Bosnia y Herzegovina" id="BA">Bosnia y Herzegovina</option>
+                <option value="Botsuana" id="BW">Botsuana</option>
+                <option value="Brasil" id="BR">Brasil</option>
+                <option value="Brunei" id="BN">Brunei</option>
+                <option value="Bulgaria" id="BG">Bulgaria</option>
+                <option value="Burkina Faso" id="BF">Burkina Faso</option>
+                <option value="Burundi" id="BI">Burundi</option>
+                <option value="Cabo Verde" id="CV">Cabo Verde</option>
+                <option value="Camboya" id="KH">Camboya</option>
+                <option value="Camerún" id="CM">Camerún</option>
+                <option value="Canadá" id="CA">Canadá</option>
+                <option value="Chad" id="TD">Chad</option>
+                <option value="Chile" id="CL">Chile</option>
+                <option value="China" id="CN">China</option>
+                <option value="Chipre" id="CY">Chipre</option>
+                <option value="Ciudad estado del Vaticano" id="VA">Ciudad estado del Vaticano</option>
+                <option value="Colombia" id="CO" selected="selected">Colombia</option>
+                <option value="Comores" id="KM">Comores</option>
+                <option value="Congo" id="CG">Congo</option>
+                <option value="Corea" id="KR">Corea</option>
+                <option value="Corea del Norte" id="KP">Corea del Norte</option>
+                <option value="Costa del Marfíl" id="CI">Costa del Marfíl</option>
+                <option value="Costa Rica" id="CR">Costa Rica</option>
+                <option value="Croacia" id="HR">Croacia</option>
+                <option value="Cuba" id="CU">Cuba</option>
+                <option value="Dinamarca" id="DK">Dinamarca</option>
+                <option value="Djibouri" id="DJ">Djibouri</option>
+                <option value="Dominica" id="DM">Dominica</option>
+                <option value="Ecuador" id="EC">Ecuador</option>
+                <option value="Egipto" id="EG">Egipto</option>
+                <option value="El Salvador" id="SV">El Salvador</option>
+                <option value="Emiratos Arabes Unidos" id="AE">Emiratos Arabes Unidos</option>
+                <option value="Eritrea" id="ER">Eritrea</option>
+                <option value="Eslovaquia" id="SK">Eslovaquia</option>
+                <option value="Eslovenia" id="SI">Eslovenia</option>
+                <option value="España" id="ES">España</option>
+                <option value="Estados Unidos" id="US">Estados Unidos</option>
+                <option value="Estonia" id="EE">Estonia</option>
+                <option value="Etiopía" id="ET">Etiopía</option>
+                <option value="Ex-República Yugoslava de Macedonia" id="MK">Ex-República Yugoslava de Macedonia</option>
+                <option value="Filipinas" id="PH">Filipinas</option>
+                <option value="Finlandia" id="FI">Finlandia</option>
+                <option value="Francia" id="FR">Francia</option>
+                <option value="Gabón" id="GA">Gabón</option>
+                <option value="Gambia" id="GM">Gambia</option>
+                <option value="Georgia" id="GE">Georgia</option>
+                <option value="Georgia del Sur y las islas Sandwich del Sur" id="GS">Georgia del Sur y las islas Sandwich del Sur</option>
+                <option value="Ghana" id="GH">Ghana</option>
+                <option value="Gibraltar" id="GI">Gibraltar</option>
+                <option value="Granada" id="GD">Granada</option>
+                <option value="Grecia" id="GR">Grecia</option>
+                <option value="Groenlandia" id="GL">Groenlandia</option>
+                <option value="Guadalupe" id="GP">Guadalupe</option>
+                <option value="Guam" id="GU">Guam</option>
+                <option value="Guatemala" id="GT">Guatemala</option>
+                <option value="Guayana" id="GY">Guayana</option>
+                <option value="Guayana francesa" id="GF">Guayana francesa</option>
+                <option value="Guinea" id="GN">Guinea</option>
+                <option value="Guinea Ecuatorial" id="GQ">Guinea Ecuatorial</option>
+                <option value="Guinea-Bissau" id="GW">Guinea-Bissau</option>
+                <option value="Haití" id="HT">Haití</option>
+                <option value="Holanda" id="NL">Holanda</option>
+                <option value="Honduras" id="HN">Honduras</option>
+                <option value="Hong Kong R. A. E" id="HK">Hong Kong R. A. E</option>
+                <option value="Hungría" id="HU">Hungría</option>
+                <option value="India" id="IN">India</option>
+                <option value="Indonesia" id="ID">Indonesia</option>
+                <option value="Irak" id="IQ">Irak</option>
+                <option value="Irán" id="IR">Irán</option>
+                <option value="Irlanda" id="IE">Irlanda</option>
+                <option value="Isla Bouvet" id="BV">Isla Bouvet</option>
+                <option value="Isla Christmas" id="CX">Isla Christmas</option>
+                <option value="Isla Heard e Islas McDonald" id="HM">Isla Heard e Islas McDonald</option>
+                <option value="Islandia" id="IS">Islandia</option>
+                <option value="Islas Caimán" id="KY">Islas Caimán</option>
+                <option value="Islas Cook" id="CK">Islas Cook</option>
+                <option value="Islas de Cocos o Keeling" id="CC">Islas de Cocos o Keeling</option>
+                <option value="Islas Faroe" id="FO">Islas Faroe</option>
+                <option value="Islas Fiyi" id="FJ">Islas Fiyi</option>
+                <option value="Islas Malvinas Islas Falkland" id="FK">Islas Malvinas Islas Falkland</option>
+                <option value="Islas Marianas del norte" id="MP">Islas Marianas del norte</option>
+                <option value="Islas Marshall" id="MH">Islas Marshall</option>
+                <option value="Islas menores de Estados Unidos" id="UM">Islas menores de Estados Unidos</option>
+                <option value="Islas Palau" id="PW">Islas Palau</option>
+                <option value="Islas Salomón" d="SB">Islas Salomón</option>
+                <option value="Islas Tokelau" id="TK">Islas Tokelau</option>
+                <option value="Islas Turks y Caicos" id="TC">Islas Turks y Caicos</option>
+                <option value="Islas Vírgenes EE.UU." id="VI">Islas Vírgenes EE.UU.</option>
+                <option value="Islas Vírgenes Reino Unido" id="VG">Islas Vírgenes Reino Unido</option>
+                <option value="Israel" id="IL">Israel</option>
+                <option value="Italia" id="IT">Italia</option>
+                <option value="Jamaica" id="JM">Jamaica</option>
+                <option value="Japón" id="JP">Japón</option>
+                <option value="Jordania" id="JO">Jordania</option>
+                <option value="Kazajistán" id="KZ">Kazajistán</option>
+                <option value="Kenia" id="KE">Kenia</option>
+                <option value="Kirguizistán" id="KG">Kirguizistán</option>
+                <option value="Kiribati" id="KI">Kiribati</option>
+                <option value="Kuwait" id="KW">Kuwait</option>
+                <option value="Laos" id="LA">Laos</option>
+                <option value="Lesoto" id="LS">Lesoto</option>
+                <option value="Letonia" id="LV">Letonia</option>
+                <option value="Líbano" id="LB">Líbano</option>
+                <option value="Liberia" id="LR">Liberia</option>
+                <option value="Libia" id="LY">Libia</option>
+                <option value="Liechtenstein" id="LI">Liechtenstein</option>
+                <option value="Lituania" id="LT">Lituania</option>
+                <option value="Luxemburgo" id="LU">Luxemburgo</option>
+                <option value="Macao R. A. E" id="MO">Macao R. A. E</option>
+                <option value="Madagascar" id="MG">Madagascar</option>
+                <option value="Malasia" id="MY">Malasia</option>
+                <option value="Malawi" id="MW">Malawi</option>
+                <option value="Maldivas" id="MV">Maldivas</option>
+                <option value="Malí" id="ML">Malí</option>
+                <option value="Malta" id="MT">Malta</option>
+                <option value="Marruecos" id="MA">Marruecos</option>
+                <option value="Martinica" id="MQ">Martinica</option>
+                <option value="Mauricio" id="MU">Mauricio</option>
+                <option value="Mauritania" id="MR">Mauritania</option>
+                <option value="Mayotte" id="YT">Mayotte</option>
+                <option value="México" id="MX">México</option>
+                <option value="Micronesia" id="FM">Micronesia</option>
+                <option value="Moldavia" id="MD">Moldavia</option>
+                <option value="Mónaco" id="MC">Mónaco</option>
+                <option value="Mongolia" id="MN">Mongolia</option>
+                <option value="Montserrat" id="MS">Montserrat</option>
+                <option value="Mozambique" id="MZ">Mozambique</option>
+                <option value="Namibia" id="NA">Namibia</option>
+                <option value="Nauru" id="NR">Nauru</option>
+                <option value="Nepal" id="NP">Nepal</option>
+                <option value="Nicaragua" id="NI">Nicaragua</option>
+                <option value="Níger" id="NE">Níger</option>
+                <option value="Nigeria" id="NG">Nigeria</option>
+                <option value="Niue" id="NU">Niue</option>
+                <option value="Norfolk" id="NF">Norfolk</option>
+                <option value="Noruega" id="NO">Noruega</option>
+                <option value="Nueva Caledonia" id="NC">Nueva Caledonia</option>
+                <option value="Nueva Zelanda" id="NZ">Nueva Zelanda</option>
+                <option value="Omán" id="OM">Omán</option>
+                <option value="Panamá" id="PA">Panamá</option>
+            </select>
         </div>
     </div>
+
+    <div t-attf-class="form-group #{error and 'num_id' in error and 'has-error' or ''}">
+        <label class="col-md-3 col-sm-4 control-label" for="num_id">Número de identificación</label>
+        <div class="col-md-7 col-sm-8">
+            <input pattern="[0-9]{7,}" type="text" class="form-control" name="num_id" required="True" t-attf-value="#{num_id or ''}"/>
+        </div>
+    </div>
+
+
+
+    <hr/>
 
     <div t-attf-class="form-group #{error and 'departamento' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="departamento">Departamento</label>
         <div class="col-md-7 col-sm-8">
-            <input type="text" class="form-control" name="departamento" required="True" t-attf-value="#{departamento or ''}"/>
+            <select  class="form-control" id="departamento" name="departamento">
+                <option value="Amazonas" id="1">Amazonas</option>
+                <option value="Antioquia" id="2">Antioquia</option>
+                <option value="Arauca" id="3">Arauca</option>
+                <option value="Atlántico" id="4">Atlántico</option>
+                <option value="Bogotá" id="5" selected="selected">Bogotá</option>
+                <option value="Bolívar" id="6">Bolívar</option>
+                <option value="Boyacá" id="7">Boyacá</option>
+                <option value="Caldas" id="8">Caldas</option>
+                <option value="Caquetá" id="9">Caquetá</option>
+                <option value="Casanare" id="32">Casanare</option>
+                <option value="Cauca" id="10">Cauca</option>
+                <option value="Cesar" id="11">Cesar</option>
+                <option value="Choco" id="12">Choco</option>
+                <option value="Córdoba" id="13">Córdoba</option>
+                <option value="Cundinamarca" id="14">Cundinamarca</option>
+                <option value="Guainía" id="15">Guainía</option>
+                <option value="Guaviare" id="33">Guaviare</option>
+                <option value="Huila" id="16">Huila</option>
+                <option value="La Guajira" id="17">La Guajira</option>
+                <option value="Magdalena" id="18">Magdalena</option>
+                <option value="Meta" id="19">Meta</option>
+                <option value="Narino" id="20">Nariño</option>
+                <option value="Norte de Santander" id="21">Norte de Santander</option>
+                <option value="Putumayo" id="22">Putumayo</option>
+                <option value="Quindío" id="23">Quindío</option>
+                <option value="Risaralda" id="24">Risaralda</option>
+                <option value="San Andrés y Providencia" id="25">San Andrés y Providencia</option>
+                <option value="Santander" id="26">Santander</option>
+                <option value="Sucre" id="27">Sucre</option>
+                <option value="Tolima" id="28">Tolima</option>
+                <option value="Valle del Cauca" id="29">Valle del Cauca</option>
+                <option value="Vaupés" id="30">Vaupés</option>
+                <option value="Vichada" id="31">Vichada</option>
+
+            </select>
         </div>
     </div>
 
+
     <div t-attf-class="form-group #{error and 'city_origin' in error and 'has-error' or ''}">
-        <label class="col-md-3 col-sm-4 control-label" for="city_origin">Ciudad de origen</label>
+        <label class="col-md-3 col-sm-4 control-label" for="city_origin">Ciudad</label>
         <div class="col-md-7 col-sm-8">
-            <input type="text" class="form-control" name="city_origin" required="True" t-attf-value="#{city_origin or ''}"/>
+            <input pattern="[A-Za-z\sáéíóú]{2,}" type="text" class="form-control" name="city_origin" required="True" t-attf-value="#{city_origin or ''}"/>
         </div>
     </div>
 
     <div t-attf-class="form-group #{error and 'school' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="school">Universidad</label>
         <div class="col-md-7 col-sm-8">
-            <input type="text" class="form-control" name="school" required="True" t-attf-value="#{school or ''}"/>
+            <input pattern="[A-Za-z\sáéíóú]{2,}" type="text" class="form-control" name="school" required="True" t-attf-value="#{school or ''}"/>
         </div>
     </div>
 
@@ -607,7 +817,7 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
     <div t-attf-class="form-group #{error and 'phone_number' in error and 'has-error' or ''}">
         <label class="col-md-3 col-sm-4 control-label" for="phone_number">Número de teléfono</label>
         <div class="col-md-7 col-sm-8">
-            <input type="text" class="form-control" name="phone_number" required="True" t-attf-value="#{phone_number or ''}"/>
+            <input pattern="[0-9]{7,}" type="text" class="form-control" name="phone_number" required="True" t-attf-value="#{phone_number or ''}"/>
         </div>
     </div>
 

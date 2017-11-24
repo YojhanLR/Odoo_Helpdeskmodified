@@ -20,7 +20,7 @@
       	                  <field name="priority_id"/>
       	                  <field name="user_id"/>
           	          <field name="person_name"/>
->i                      <field name="last_name"/>
+                      <field name="last_name"/>
                       <field name="num_id"/>
                       <field name="country"/>
                       <field name="departamento"/>
