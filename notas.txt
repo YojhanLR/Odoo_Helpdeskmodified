@@ -1,7 +1,7 @@
-							yojhanr95@hotmail.com			adm					password2017
+							administrador@colpsic.com						adm				
 
-Beatriz Medina Ramos		beatrizmedina@colpsic.com		front desk
-Diana Costa Mora 			dianacosta@colpsic.com			encargada
+Yesenia Sierra Saenz		yesenia.sierra@colpsic.com						front desk
+Sebastian Limas Cano		sebastian.limas@colpsic.com						encargado
 
-Julia Cano Martin 			juliacano@colpsic.com			normal
-Pablo Tomas Santana			pablotomas@colpsic.com			normal
+Julia Cano Martin 			juliacano@colpsic.com							normal
+Pablo Tomas Santana			pablotomas@colpsic.com							normal
